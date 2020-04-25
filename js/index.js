@@ -83,6 +83,9 @@ function Login(form) {
                 });
             }
         },
+        fail: function (res) {
+            console.log(res);
+        }
     });
 }
 
