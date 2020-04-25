@@ -1,0 +1,38 @@
+footer{
+    width: 80%;
+    height: 50px;
+    position: absolute;
+    bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 20px;
+    background-color: var(--primary);
+    background-image: linear-gradient(90deg,var(--primary),var(--primary-dark));
+}
+footer :nth-child(1){
+    margin-bottom: 0px;
+}
+
+.card-table{
+    box-shadow: none;
+    border: 3px solid #d3d3dd;
+}
+.card-table .card-body{
+    padding: 16px 0px;
+    overflow-y: auto;
+}
+.card-table .card-title{
+    padding-right: 16px;
+}
+.custom-table thead tr th{
+    border-top: none;
+}
+.custom-table td{
+    padding: 1.25rem 0.75rem;
+}

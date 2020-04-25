@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>پنل کاربری</title>
+    <link href="../lib/bootstrap-4.4.1-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../style/font/fonts.css" rel="stylesheet" type="text/css">
+    <link href="../style/styles.css" rel="stylesheet" type="text/css">
+    <link href="../style/project.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="body">
+    <div class="d-flex flex-row">
+        <div class="right-container">
+            <!-- drawer -->
+            <div class="drawer animated slideInRight">
+                <img alt="تصویر کاربر" src="../images/avatar.jpeg" />
+                <h6>نام کاربر</h6>
+                <h6>نرم افزار مدیریت پروژه</h6>
+                <p class="text-muted mb-5">خوش آمدید</p>
+                <button class="ButtonBase IconButton" onclick="location.href='./panel.html'">
+                    <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"
+                        title="dashboard">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"></path>
+                    </svg>
+                    <p class="h6 mb-0">پنل</p>
+                </button>
+                <button class="ButtonBase IconButton selected">
+                    <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"
+                        title="dashboard">
+                        <path
+                            d="M22 10l-6-6H4c-1.1 0-2 .9-2 2v12.01c0 1.1.9 1.99 2 1.99l16-.01c1.1 0 2-.89 2-1.99v-8zm-7-4.5l5.5 5.5H15V5.5z">
+                        </path>
+                    </svg>
+                    <p class="h6 mb-0">پروژه</p>
+                </button>
+                <button class="ButtonBase IconButton" onclick="location.href='../index.html'">
+                    <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"
+                        title="ExitToApp">
+                        <path
+                            d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z">
+                        </path>
+                    </svg>
+                    <p class="h6 mb-0">خروج</p>
+                </button>
+            </div>
+        </div>
+        <div class="main-container container-fluid">
+            <!-- header -->
+            <header class="animated slideInDown delay-1ms">
+                <h6>کد پروژه : </h6>
+                <h6 id="intId" class="mx-2"></h6>
+                <h6 class="mr-5">نام پروژه : </h6>
+                <h6 id="chName" class="mr-2"></h6>
+            </header>
+            <div class="row mx-0 w-100">
+                <main class="col-xl-10 col-lg-9 col-md-9 col-sm-7 col-xs-12">
+                    <!-- progress bar -->
+                    <div class="row align-items-center mb-4 animated fadeIn delay-3ms" id="progressBar">
+                        <div class="col-lg-9 col-md-9 col-sm-8 col-8">
+                            <div class="progress">
+                                <div id="progress" class="progress-bar progress-bar-striped progress-bar-animated"
+                                    role="progressbar">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-4">
+                            <button
+                                class="btn btn-primary btn-block d-flex flex-row align-items-center justify-content-center"
+                                data-toggle="modal" data-target="#progressModal">
+                                <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"
+                                    tabindex="-1" title="Edit">
+                                    <path
+                                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z">
+                                    </path>
+                                </svg>
+                                <p class="mb-0 mr-2">تغییر پیشرفت</p>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- describtion -->
+                    <div class="row mb-3 animated fadeIn delay-4ms" id="describtionArea">
+                        <div class="col-12" id="chDescribtion"></div>
+                    </div>
+                    <div class="row mb-3 animated fadeIn delay-5ms" id="describtionActionsArea">
+                        <div class="col-12" id="describtionActions">
+                            <button class="btn btn-link text-decoration-none d-flex flex-row align-items-center pr-0">
+                                <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"
+                                    tabindex="-1" title="Edit">
+                                    <path
+                                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z">
+                                    </path>
+                                </svg>
+                                <p class="mb-0 mr-2">ویرایش توضیحات</p>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- files -->
+                    <div class="row mb-3 animated slideInRight delay-6ms" id="filesArea">
+                        <div class="col-12 mb-3">
+                            <h5 class="title-divider">
+                                <span class="title-divider-inner">
+                                    <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"
+                                        tabindex="-1" title="AttachFile">
+                                        <path
+                                            d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z">
+                                        </path>
+                                    </svg>
+                                    فایل
+                                </span>
+                            </h5>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <input name="uploadFile" id="uploadFile" type="file" multiple class="d-none"
+                                onchange="uploadFile(event)">
+                            <label for="uploadFile"
+                                class="btn btn-link text-decoration-none d-flex flex-row align-items-center pr-0">
+                                <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"
+                                    tabindex="-1" title="Edit">
+                                    <path
+                                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z">
+                                    </path>
+                                </svg>
+                                <p class="mb-0 mr-2">انتخاب فایل</p>
+                            </label>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <div class="row" id="FilesList">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+                <sidebar class="col-xl-2 col-lg-3 col-md-3 col-sm-5 col-xs-12 animated slideInLeft delay-2ms0">
+                    <div class="sidebar-item">
+                        <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"
+                            title="createDate">
+                            <path
+                                d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z">
+                            </path>
+                        </svg>
+                        <p>تاریخ ثبت:</p>
+                        <p id="chCreateDate"></p>
+                    </div>
+                    <div class="sidebar-item">
+                        <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"
+                            title="expireDate">
+                            <path
+                                d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z">
+                            </path>
+                        </svg>
+                        <p>تاریخ انقضا:</p>
+                        <p id="chExpireDate"></p>
+                    </div>
+                    <div class="sidebar-item">
+                        <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"
+                            title="totalDate">
+                            <path
+                                d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.47 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z">
+                            </path>
+                        </svg>
+                        <p>زمان کل:</p>
+                        <p id="chTotalDate">????????</p>
+                    </div>
+                    <div class="sidebar-item">
+                        <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"
+                            title="supevisiorName">
+                            <path
+                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z">
+                            </path>
+                        </svg>
+                        <p>مدیر پروژه:</p>
+                        <p id="chSupevisiorName"></p>
+                    </div>
+
+                    <div class="divider sidebar-item m-0"></div>
+
+                    <div class="sidebar-item flex-column align-items-start">
+                        <p class="mr-0 mb-3">وضعیت</p>
+                        <select class="status form-control">
+                            <option hidden>تغییر وضعیت</option>
+                            <option>تعلیق</option>
+                            <option>اتمام</option>
+                        </select>
+                    </div>
+
+                    <div class="divider sidebar-item m-0"></div>
+
+                    <button class="my-3 sidebar-item btn btn-light d-flex flex-row justify-content-start btn-light-selected">
+                        <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"
+                            title="AttachFile">
+                            <path
+                                d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z">
+                            </path>
+                        </svg>
+                        <p class="mb-0 mr-2">فایل</p>
+                    </button>
+                    <button class="my-3 sidebar-item btn btn-light d-flex flex-row justify-content-start">
+                        <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"
+                            title="QuestionAnswer">
+                            <path
+                                d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z">
+                            </path>
+                        </svg>
+                        <p class="mb-0 mr-2">کامنت</p>
+                    </button>
+                    <button class="my-3 sidebar-item btn btn-light d-flex flex-row justify-content-start">
+                        <svg class="SvgIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"
+                            title="subject">
+                            <path fill="currentColor"
+                                d="M4,5H20V7H4V5M4,9H20V11H4V9M4,13H20V15H4V13M4,17H14V19H4V17Z" />
+                        </svg>
+                        <p class="mb-0 mr-2">فرآیند های زیرمجموعه</p>
+                    </button>
+
+                </sidebar>
+            </div>
+            <!-- <footer>
+                <h6>نرم افزار مدیریت پروژه © 2020</h6>
+            </footer> -->
+        </div>
+    </div>
+
+    <div id="progressModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header align-items-center">
+                    <h5 class="modal-title">جهت تغییر پیشرفت پروژه یک گزینه را انتخاب کنید</h5>
+                    <button type="button" class="close mr-auto ml-0" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12 mb-5">
+                            <div class="info-card info-card--active" onclick="onProgressCardClicked(this)">
+                                <div class="splash" style="background-color: var(--danger);"></div>
+                                <svg class="SvgIcon text-white" focusable="false" viewBox="0 0 24 24" aria-hidden="true"
+                                    tabindex="-1" title="MoodBad">
+                                    <path
+                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 3c-2.33 0-4.31 1.46-5.11 3.5h10.22c-.8-2.04-2.78-3.5-5.11-3.5z">
+                                    </path>
+                                </svg>
+                                <h6 id="25">25%</h6>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 mb-5">
+                            <div class="info-card info-card--active" onclick="onProgressCardClicked(this)">
+                                <div class="splash" style="background-color: var(--warning);"></div>
+                                <svg class="SvgIcon text-white" focusable="false" viewBox="0 0 24 24" aria-hidden="true"
+                                    tabindex="-1" title="MoodBad">
+                                    <path
+                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 3c-2.33 0-4.31 1.46-5.11 3.5h10.22c-.8-2.04-2.78-3.5-5.11-3.5z">
+                                    </path>
+                                </svg>
+                                <h6 id="50">50%</h6>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 mb-5">
+                            <div class="info-card info-card--active" onclick="onProgressCardClicked(this)">
+                                <div class="splash" style="background-color: var(--info);"></div>
+                                <svg class="SvgIcon text-white" focusable="false" viewBox="0 0 24 24" aria-hidden="true"
+                                    tabindex="-1" title="Mood">
+                                    <path
+                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z">
+                                    </path>
+                                </svg>
+                                <h6 id="75">75%</h6>
+                                <h5></h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 mb-5">
+                            <div class="info-card info-card--active" onclick="onProgressCardClicked(this)">
+                                <div class="splash" style="background-color: var(--teal);"></div>
+                                <svg class="SvgIcon text-white" focusable="false" viewBox="0 0 24 24" aria-hidden="true"
+                                    tabindex="-1" title="Mood">
+                                    <path
+                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z">
+                                    </path>
+                                </svg>
+                                <h6 id="100">100%</h6>
+                                <h5></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Toast Container -->
+    <div aria-live="polite" aria-atomic="true" style="position: fixed;top: 20px;right: 20px; min-height: 200px;">
+        <!-- Position it -->
+        <div id="toast-here" style="position: absolute; top: 0; right: 0;">
+            <!-- Then put toasts within -->
+
+        </div>
+    </div>
+
+    <script src="../lib/jquery-3.5.0.min.js"></script>
+    <script src="../lib/jquery-validation-1.19.1/dist/jquery.validate.min.js"></script>
+    <script src="../lib/popper.min.js"></script>
+    <script src="../lib/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="../js/project.js"></script>
+</body>
+
+</html>
